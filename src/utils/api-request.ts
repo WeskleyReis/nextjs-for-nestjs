@@ -26,7 +26,7 @@ export async function apiRequest<T>(
 
     if (!res.ok) {
       const errors = Array.isArray(json?.message)
-        ? json.messagea
+        ? json.message
         : [json?.message || 'Erro inesperado']
 
       return {
