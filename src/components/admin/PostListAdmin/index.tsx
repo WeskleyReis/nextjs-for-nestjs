@@ -1,18 +1,25 @@
 import { deletePostAction } from "@/actions/post/delete-post-action"
-import { findAllPostAdmin } from "@/lib/post/queries/admin"
+import { findAllPostAdmin, findAllPostByIdFromApiAdmin } from "@/lib/post/queries/admin"
 import clsx from "clsx"
 import Link from "next/link"
 import { DeletePostButton } from "../DeletePostButton"
 import ErrorMessage from "../../ErrorMessage"
 
 export default async function PostListAdmin() {
-  const posts = await findAllPostAdmin()
+  const postsRes = await findAllPostByIdFromApiAdmin()
 
-  if (posts.length <= 0) return (
+  if (!postsRes.success)
+    return (
       <ErrorMessage
         contentTitle="Ei 😅"
-        content='Bora criar algum post?'
+        content='Tente fazer login novamente'
       />
+    )
+
+  const posts = postsRes.data
+  if (posts.length === 0)
+    return (
+      <ErrorMessage contentTitle="Ei 😅" content='Bora criar algum post?' />
     )
 
   return (
