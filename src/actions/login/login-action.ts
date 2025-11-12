@@ -1,6 +1,6 @@
 'use server'
 
-import { createLoginSession, verifyPassword } from "@/lib/login/manage-login"
+import { createLoginSessionFromApi } from "@/lib/login/manage-login"
 import { LoginSchema } from "@/lib/login/schemas"
 import { apiRequest } from "@/utils/api-request"
 import { asyncDelay } from "@/utils/async-delay"
@@ -61,8 +61,6 @@ export async function loginAction(state: LoginActionState, formData: FormData) {
   }
  }
 
- return {
-  email: formEmail,
-  errors: ['Success'],
- }
+ await createLoginSessionFromApi(loginReponse.data.accessToken)
+ redirect('/admin/post')
 }
