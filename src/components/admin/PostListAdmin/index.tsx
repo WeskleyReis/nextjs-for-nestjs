@@ -1,5 +1,4 @@
-import { deletePostAction } from "@/actions/post/delete-post-action"
-import { findAllPostAdmin, findAllPostByIdFromApiAdmin } from "@/lib/post/queries/admin"
+import { findAllPostByIdFromApiAdmin } from "@/lib/post/queries/admin"
 import clsx from "clsx"
 import Link from "next/link"
 import { DeletePostButton } from "../DeletePostButton"

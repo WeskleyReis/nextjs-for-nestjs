@@ -6,16 +6,16 @@ import { InputText } from '@/components/InputText';
 import { MarkdownEditor } from '@/components/MarkdownEditor';
 import { useActionState, useEffect, useState } from 'react';
 import { ImageUpload } from '../ImageUpload';
-import { makePartialPublicPost, PublicPost } from '@/dto/post/dto';
 import { createPostAction } from '@/actions/post/create-post-action';
 import { toast } from 'react-toastify';
 import { updatePostAction } from '@/actions/post/update-post-action';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { PublicPostForApiDto, PublicPostForApiSchema } from '@/lib/post/schemas';
 
 
 type ManagePostFormUpdateProps = {
   mode: 'update'
-  publicPost: PublicPost
+  publicPost: PublicPostForApiDto
 }
 
 type ManagePostFormCreateProps = {
@@ -43,7 +43,7 @@ export function ManagePostForm(props: ManagePostFormProps) {
   }
 
   const initialState = {
-    formState: makePartialPublicPost(publicPost),
+    formState: PublicPostForApiSchema.parse(publicPost || {}),
     errors: [],
   }
   const [state, action, isPanding] = useActionState(
@@ -102,15 +102,6 @@ export function ManagePostForm(props: ManagePostFormProps) {
         />
 
         <InputText
-          labelText='Autor'
-          name='author'
-          placeholder='Digie o nome do autor'
-          type='text'
-          defaultValue={formState.author}
-          disabled={isPanding}
-        />
-
-        <InputText
           labelText='Título'
           name='title'
           placeholder='Digie o título'
@@ -147,13 +138,15 @@ export function ManagePostForm(props: ManagePostFormProps) {
           disabled={isPanding}
         />
 
-        <InputCheckbox
-          labelText='Publicar?'
-          name='published'
-          type='checkbox'
-          defaultChecked={formState.published}
-          disabled={isPanding}
-        />
+        {mode === 'update' && (
+          <InputCheckbox
+            labelText='Publicar?'
+            name='published'
+            type='checkbox'
+            defaultChecked={formState.published}
+            disabled={isPanding}
+          />
+        )}
 
         <div className='mt-4'>
           <Button disabled={isPanding} type='submit'>
