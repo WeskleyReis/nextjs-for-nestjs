@@ -5,7 +5,7 @@ type DialogProps = {
   isVisible: boolean
   title: string
   content: React.ReactNode
-  onConfirme: () => void
+  onConfirm: () => void
   onCancel: () => void
   disabled: boolean
 }
@@ -14,7 +14,7 @@ export function Dialog({
   isVisible,
   title,
   content,
-  onConfirme,
+  onConfirm,
   onCancel,
   disabled
 }: DialogProps) {
@@ -59,7 +59,7 @@ export function Dialog({
           </Button>
           <Button
             variant="default"
-            onClick={onConfirme}
+            onClick={onConfirm}
             disabled={disabled}
           >
             Ok

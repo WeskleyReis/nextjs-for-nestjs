@@ -3,7 +3,7 @@
 import { CreateUserSchema, PublicUserDto, PublicUserSchema } from "@/lib/user/schemas"
 import { apiRequest } from "@/utils/api-request"
 import { asyncDelay } from "@/utils/async-delay"
-import { getZodErrorMessages } from "@/utils/get-zoid-error-messages"
+import { getZodErrorMessages } from "@/utils/get-zod-error-messages"
 import { verifyHoneypotInput } from "@/utils/verify-honeypot-input"
 import { redirect } from "next/navigation"
 

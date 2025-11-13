@@ -3,7 +3,7 @@
 import { getLoginSessionForApi } from "@/lib/login/manage-login"
 import { PublicPostForApiDto, PublicPostForApiSchema, UpdatePostForApiSchema } from "@/lib/post/schemas"
 import { authenticatedApiRequest } from "@/utils/authenticated-api-request"
-import { getZodErrorMessages } from "@/utils/get-zoid-error-messages"
+import { getZodErrorMessages } from "@/utils/get-zod-error-messages"
 import { makeRandomString } from "@/utils/make-random-string"
 import { revalidateTag } from "next/cache"
 

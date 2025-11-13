@@ -72,12 +72,12 @@ export function MenuAdmin() {
         Home
       </a>
 
-      <Link className={linkClasses} href='/admin/user'>
+      <Link className={linkClasses} href='/admin/post'>
         <FileTextIcon />
         Posts
       </Link>
 
-      <Link className={linkClasses} href='/admin/post'>
+      <Link className={linkClasses} href='/admin/user'>
         <UserPenIcon />
         Seus dados
       </Link>

@@ -7,7 +7,7 @@ import {
   PublicPostForApiSchema
 } from "@/lib/post/schemas"
 import { authenticatedApiRequest } from "@/utils/authenticated-api-request"
-import { getZodErrorMessages } from "@/utils/get-zoid-error-messages"
+import { getZodErrorMessages } from "@/utils/get-zod-error-messages"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
@@ -72,5 +72,5 @@ export async function createPostAction(
   const createPost = createPostResponse.data
 
   revalidateTag('posts')
-  redirect(`/admin/post/${createPost.id}?created=1`)
+  return redirect(`/admin/post/${createPost.id}?created=1`)
 }

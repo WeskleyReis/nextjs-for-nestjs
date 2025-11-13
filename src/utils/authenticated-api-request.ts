@@ -1,3 +1,5 @@
+'use server'
+
 import 'server-only'
 import { getLoginSessionForApi } from '@/lib/login/manage-login'
 import { ApiRequest, apiRequest } from './api-request'

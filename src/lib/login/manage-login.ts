@@ -1,5 +1,7 @@
-import { cookies } from "next/headers";
+'use server'
+
 import { SignJWT, jwtVerify } from "jose";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 const jwtSecretKey = process.env.JWT_SECRET_KEY
