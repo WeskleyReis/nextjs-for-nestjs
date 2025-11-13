@@ -1,38 +1,42 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
+      // localhost sem porta
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        pathname: '/**',
+      },
       {
         protocol: 'https',
         hostname: 'localhost',
-        port: '3000',
         pathname: '/**',
-        search: '',
       },
+
+      // suas portas locais
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '3000',
         pathname: '/**',
-        search: '',
       },
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '3001',
         pathname: '/**',
-        search: '',
       },
+
+      // domínio de produção
       {
         protocol: 'https',
         hostname: 'theblog.otaviomiranda.com.br',
-        port: '',
         pathname: '/**',
-        search: '',
       },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

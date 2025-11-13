@@ -2,7 +2,7 @@
 
 import { logoutAction } from "@/actions/login/logout-action";
 import clsx from "clsx";
-import { CircleXIcon, FileTextIcon, HourglassIcon, HouseIcon, LogOutIcon, MenuIcon, PlusIcon } from "lucide-react";
+import { CircleXIcon, FileTextIcon, HourglassIcon, HouseIcon, LogOutIcon, MenuIcon, PlusIcon, UserPenIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
@@ -72,9 +72,14 @@ export function MenuAdmin() {
         Home
       </a>
 
-      <Link className={linkClasses} href='/admin/post'>
+      <Link className={linkClasses} href='/admin/user'>
         <FileTextIcon />
         Posts
+      </Link>
+
+      <Link className={linkClasses} href='/admin/post'>
+        <UserPenIcon />
+        Seus dados
       </Link>
 
       <Link className={linkClasses} href='/admin/post/new'>

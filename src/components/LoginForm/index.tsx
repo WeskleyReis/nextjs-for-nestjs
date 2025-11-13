@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useActionState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { HoneyPotInput } from "../HoneyPotInput";
 
 export function LoginForm() {
   const initialState = {
@@ -72,6 +73,8 @@ export function LoginForm() {
           disabled={isPanding}
           required
         />
+
+        <HoneyPotInput />
 
         <Button disabled={isPanding} type="submit" className="mt-4">
           <LogInIcon />

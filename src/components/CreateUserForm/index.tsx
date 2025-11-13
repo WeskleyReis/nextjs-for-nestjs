@@ -9,6 +9,7 @@ import { createUserAction } from '@/actions/user/create-user-action';
 import { useActionState, useEffect } from 'react';
 import { PublicUserSchema } from '@/lib/user/schemas';
 import { toast } from 'react-toastify';
+import { HoneyPotInput } from '../HoneyPotInput';
 
 export function CreateUserForm() {
   const [state, action, isPeding] = useActionState(createUserAction, {
@@ -66,6 +67,8 @@ export function CreateUserForm() {
           disabled={isPeding}
           required
         />
+
+        <HoneyPotInput />
 
         <Button disabled={isPeding} type='submit' className='mt-4'>
           <UserRoundIcon />
